@@ -1,12 +1,10 @@
 import torch
 
-# Start NVTX range for profiling
-torch.cuda.nvtx.range_push("start")
 
 # Create test tensors
 A = torch.rand((3, 3), device='cuda')
 B = torch.rand((3, 3), device='cuda')
-
+torch.cuda.nvtx.range_push("start")
 # Perform matrix multiplication
 C = torch.matmul(A, B)
 
